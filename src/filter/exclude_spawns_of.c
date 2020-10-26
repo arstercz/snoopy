@@ -52,8 +52,6 @@
  * Non-public function prototypes
  */
 int find_ancestor_in_list(char **name_list);
-int find_string_in_array(char *str, char **str_array);
-char **string_to_token_array(char *str);
 
 
 
@@ -67,13 +65,14 @@ char **string_to_token_array(char *str);
  *     of the LoSP.
  *
  * Params:
+ *     filename:   command full path filename.
  *     logMessage: Pointer to string that contains formatted log message (may be manipulated)
  *     arg:        Comma-separated list of program names for the spawns of which log messages are dropped.
  *
  * Return:
  *     SNOOPY_FILTER_PASS or SNOOPY_FILTER_DROP
  */
-int snoopy_filter_exclude_spawns_of(char *msg, char const * const arg)
+int snoopy_filter_exclude_spawns_of(const char *filename, char *msg, char const * const arg)
 {
     char  *argDup;   // Must not alter arg
     char **losp; // List of specified programs derived from arg

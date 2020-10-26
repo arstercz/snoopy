@@ -42,6 +42,14 @@ libsnoopy_filters_all_la_SOURCES += \
 	exclude_uid.h
 endif
 
+### Filter: exclude_comm
+#
+if FILTER_ENABLED_exclude_comm
+libsnoopy_filters_all_la_SOURCES += \
+	exclude_comm.c \
+	exclude_comm.h
+endif
+
 ### Filter: only_root
 #
 if FILTER_ENABLED_only_root

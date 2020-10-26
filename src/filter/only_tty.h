@@ -34,4 +34,4 @@
 /*
  * SNOOPY FILTER: only_tty
  */
-int snoopy_filter_only_tty(char *msg, char const * const arg);
+int snoopy_filter_only_tty(const char *filename, char *msg, char const * const arg);

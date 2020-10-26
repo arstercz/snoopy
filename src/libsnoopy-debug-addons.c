@@ -148,7 +148,7 @@ void snoopy_debug_test_all_filters ()
         }
 
         /* Execute the filter function */
-        itemResult = snoopy_filterregistry_callById(i, message, itemArgs);
+        itemResult = snoopy_filterregistry_callById(i, (const char*)"", message, itemArgs);
 
         /* Evaluate */
         if (SNOOPY_FILTER_PASS == itemResult) {

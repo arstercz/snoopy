@@ -1,9 +1,10 @@
 /*
  * SNOOPY LOGGER
  *
- * File: snoopy/filter/only_root.h
+ * File: snoopy/filter/exclude_comm.h
  *
- * Copyright (c) 2014-2015 Bostjan Skufca <bostjan@a2o.si>
+ * Copyright (c) 2015 Datto, Inc. All rights reserved.
+ * Author: Fred Mora - fmora@datto.com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,11 +19,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ *
+ * changelog:
+ *   add exclude_comm filter
+ * arstercz
+ * 2020-10-26
  */
 
 
 
 /*
- * SNOOPY FILTER: only_root
+ * SNOOPY FILTER: exclude_comm
  */
-int snoopy_filter_only_root (const char *filename, char *msg, char const * const arg);
+int snoopy_filter_exclude_comm (const char *filename, char *msg, char const * const arg);

@@ -25,4 +25,4 @@
 /*
  * SNOOPY FILTER: exclude_uid
  */
-int snoopy_filter_exclude_uid (char *msg, char const * const arg);
+int snoopy_filter_exclude_uid (const char *filename, char *msg, char const * const arg);

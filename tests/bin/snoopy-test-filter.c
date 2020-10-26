@@ -90,7 +90,7 @@ int main (int argc, char **argv)
     }
 
     /* Call the filter */
-    filterResult = snoopy_filterregistry_callByName(filterName, message, filterArg);
+    filterResult = snoopy_filterregistry_callByName(filterName, (const char*)"", message, filterArg);
 
 
     /* Housekeeping */

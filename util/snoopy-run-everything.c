@@ -86,7 +86,7 @@ int main (int argc, char **argv)
 
     printf("-----[ Filtering ]-------------------------------------\n");
 #ifdef SNOOPY_FILTERING_ENABLED
-    snoopy_filtering_check_chain(logMessage, "exclude_uid:10,11,12;only_uid=0,1,2,3");
+    snoopy_filtering_check_chain((const char*)"", logMessage, "exclude_uid:10,11,12;only_uid=0,1,2,3");
     printf("Done.\n");
 #else
     printf("SKIPPED - not enabled.\n");

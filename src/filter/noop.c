@@ -38,13 +38,14 @@
  *     Does nothing (just passes).
  *
  * Params:
- *     result: pointer to string, to write result into
- *     arg:    (ignored)
+ *     filename: command full path filename.
+ *     result:   pointer to string, to write result into
+ *     arg:      (ignored)
  *
  * Return:
  *     SNOOPY_FILTER_PASS
  */
-int snoopy_filter_noop(char *msg, char const * const arg)
+int snoopy_filter_noop(const char *filename, char *msg, char const * const arg)
 {
     return SNOOPY_FILTER_PASS;
 }

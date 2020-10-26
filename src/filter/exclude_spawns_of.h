@@ -26,4 +26,6 @@
 /*
  * SNOOPY FILTER: exclude_spawns_of
  */
-int snoopy_filter_exclude_spawns_of (char *msg, char const * const arg);
+int snoopy_filter_exclude_spawns_of (const char *filename, char *msg, char const * const arg);
+int find_string_in_array(char *str, char **str_array);
+char **string_to_token_array(char *str);

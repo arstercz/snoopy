@@ -42,13 +42,14 @@
  *     Returns TTY of current process.
  *
  * Params:
- *     result: pointer to string, to write result into
- *     arg:    (ignored)
+ *     filename: command full path filename.
+ *     msg:      pointer to string, to write result into
+ *     arg:      (ignored)
  *
  * Return:
  *     number of characters in the returned string, or SNOOPY_DATASOURCE_FAILURE
  */
-int snoopy_filter_only_tty(char *msg, char const * const arg)
+int snoopy_filter_only_tty(const char *filename, char *msg, char const * const arg)
 {
     char    ttyPath[SNOOPY_DATASOURCE_TTY_sizeMaxWithNull];
     size_t  ttyPathLen = SNOOPY_DATASOURCE_TTY_sizeMaxWithoutNull;

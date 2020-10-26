@@ -45,13 +45,14 @@
  *     Excludes all log messages not comming from specific UID
  *
  * Params:
+ *     filename:   command full path filename.
  *     logMessage: pointer to string that contains formatted log message (may be manipulated)
  *     arg:        Comma-separated list of UIDs for which log message is passed on, dropped for all others
  *
  * Return:
  *     SNOOPY_FILTER_PASS or SNOOPY_FILTER_DROP
  */
-int snoopy_filter_only_uid (char *msg, char const * const arg)
+int snoopy_filter_only_uid (const char *filename, char *msg, char const * const arg)
 {
     uid_t  curUid;     // Actual UID of running process
     char  *argDup    = NULL;

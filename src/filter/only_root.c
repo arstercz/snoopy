@@ -42,13 +42,14 @@
  *     Only logs messages from root (uid=0 actually)
  *
  * Params:
- *     msg:   pointer to string that contains formatted log message (may be manipulated)
- *     arg:   arguments passed to this filter
+ *     filename: command full path filename.
+ *     msg:      pointer to string that contains formatted log message (may be manipulated)
+ *     arg:      arguments passed to this filter
  *
  * Return:
  *     SNOOPY_FILTER_PASS or SNOOPY_FILTER_DROP
  */
-int snoopy_filter_only_root (char *msg, char const * const arg)
+int snoopy_filter_only_root (const char *filename, char *msg, char const * const arg)
 {
     if (0 == getuid()) {
         return SNOOPY_FILTER_PASS;

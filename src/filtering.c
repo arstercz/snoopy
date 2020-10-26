@@ -55,6 +55,7 @@
  *     SNOOPY_FILTER_PASS or SNOOPY_FILTER_DROP
  */
 int snoopy_filtering_check_chain (
+    const char *filename,
     char *logMessage,
     char *filterChain
 ) {
@@ -112,7 +113,7 @@ int snoopy_filtering_check_chain (
         }
 
         // Consult the filter, and return immediately if message should be dropped
-        if (SNOOPY_FILTER_DROP == snoopy_filterregistry_callByName(filterNamePtr, logMessage, filterArgPtr)) {
+        if (SNOOPY_FILTER_DROP == snoopy_filterregistry_callByName(filterNamePtr, filename, logMessage, filterArgPtr)) {
             return SNOOPY_FILTER_DROP;
         }
     }

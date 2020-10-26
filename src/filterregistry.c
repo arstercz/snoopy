@@ -41,6 +41,9 @@
 #ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_uid
 #include "filter/exclude_uid.h"
 #endif
+#ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_comm
+#include "filter/exclude_comm.h"
+#endif
 #ifdef SNOOPY_CONF_FILTER_ENABLED_only_root
 #include "filter/only_root.h"
 #endif
@@ -66,6 +69,9 @@ char *snoopy_filterregistry_names[] = {
 #ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_uid
     "exclude_uid",
 #endif
+#ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_comm
+    "exclude_comm",
+#endif
 #ifdef SNOOPY_CONF_FILTER_ENABLED_only_root
     "only_root",
 #endif
@@ -81,12 +87,15 @@ char *snoopy_filterregistry_names[] = {
     "",
 };
 
-int (*snoopy_filterregistry_ptrs []) (char *logMessage, char const * const arg) = {
+int (*snoopy_filterregistry_ptrs []) (const char *filename, char *logMessage, char const * const arg) = {
 #ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_spawns_of
     snoopy_filter_exclude_spawns_of,
 #endif
 #ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_uid
     snoopy_filter_exclude_uid,
+#endif
+#ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_comm
+    snoopy_filter_exclude_comm,
 #endif
 #ifdef SNOOPY_CONF_FILTER_ENABLED_only_root
     snoopy_filter_only_root,
@@ -169,13 +178,13 @@ char* snoopy_filterregistry_getName (int filterId)
  *
  * Call the given filter by id and return its output
  */
-int snoopy_filterregistry_callById (int filterId, char *logMessage, char const * const filterArg)
+int snoopy_filterregistry_callById (int filterId, const char *filename, char *logMessage, char const * const filterArg)
 {
     if (SNOOPY_FALSE == snoopy_filterregistry_doesIdExist(filterId)) {
         return -1;
     }
 
-    return snoopy_filterregistry_ptrs[filterId](logMessage, filterArg);
+    return snoopy_filterregistry_ptrs[filterId](filename, logMessage, filterArg);
 }
 
 
@@ -185,7 +194,7 @@ int snoopy_filterregistry_callById (int filterId, char *logMessage, char const *
  *
  * Call the given filter by name and return its output
  */
-int snoopy_filterregistry_callByName (char const * const filterName, char * logMessage, char const * const filterArg)
+int snoopy_filterregistry_callByName (char const * const filterName, const char * filename, char * logMessage, char const * const filterArg)
 {
     int filterId;
 
@@ -194,5 +203,5 @@ int snoopy_filterregistry_callByName (char const * const filterName, char * logM
         return -1;
     }
 
-    return snoopy_filterregistry_ptrs[filterId](logMessage, filterArg);
+    return snoopy_filterregistry_ptrs[filterId](filename, logMessage, filterArg);
 }

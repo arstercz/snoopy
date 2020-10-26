@@ -95,7 +95,7 @@ int main (int argc, char **argv)
         (
             (SNOOPY_TRUE == CFG->filtering_enabled)
             &&
-            (SNOOPY_FILTER_PASS == snoopy_filtering_check_chain(logMessage, CFG->filter_chain))
+            (SNOOPY_FILTER_PASS == snoopy_filtering_check_chain((const char*)"", logMessage, CFG->filter_chain))
         )
     ) {
 #endif

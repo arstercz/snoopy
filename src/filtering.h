@@ -23,6 +23,7 @@
 
 
 int snoopy_filtering_check_chain (
+    const char *filename,
     char *logMessage,
     char *chain
 );
