@@ -2,6 +2,10 @@
   Snoopy Logger ChangeLog
 -------------------------------------------------------------------------------
 
+2020-11-30 - arstercz
+
+o Enhancement
+    add exclude_common filter based on v2.4.10
 
 2020-11-30 - Version 2.4.10
 ---------------------------

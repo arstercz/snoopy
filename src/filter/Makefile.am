@@ -34,6 +34,13 @@ libsnoopy_filters_all_la_SOURCES += \
 	exclude_spawns_of.h
 endif
 
+### Filter: exclude_comm
+if FILTER_ENABLED_exclude_comm
+libsnoopy_filters_all_la_SOURCES += \
+	exclude_comm.c \
+	exclude_comm.h
+endif
+
 ### Filter: exclude_uid
 #
 if FILTER_ENABLED_exclude_uid

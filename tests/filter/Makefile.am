@@ -21,6 +21,13 @@ if FILTER_ENABLED_exclude_spawns_of
     TESTS += $(SCRIPT_PREFIX)_exclude_spawns_of-mustlog-spaceparent.sh
 endif
 
+if FILTER_ENABLED_exclude_comm
+    TESTS += $(SCRIPT_PREFIX)_exclude_comm-pass.sh
+    TESTS += $(SCRIPT_PREFIX)_exclude_comm-pass-multi.sh
+    TESTS += $(SCRIPT_PREFIX)_exclude_comm-drop.sh
+    TESTS += $(SCRIPT_PREFIX)_exclude_comm-drop-multi.sh
+endif
+
 if DATASOURCE_ENABLED_uid
 if FILTER_ENABLED_exclude_uid
     TESTS += $(SCRIPT_PREFIX)_exclude_uid-pass.sh

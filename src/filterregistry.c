@@ -38,6 +38,9 @@
 #ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_spawns_of
 #include "filter/exclude_spawns_of.h"
 #endif
+#ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_comm
+#include "filter/exclude_comm.h"
+#endif
 #ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_uid
 #include "filter/exclude_uid.h"
 #endif
@@ -63,6 +66,9 @@ char *snoopy_filterregistry_names[] = {
 #ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_spawns_of
     "exclude_spawns_of",
 #endif
+#ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_comm
+    "exclude_comm",
+#endif
 #ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_uid
     "exclude_uid",
 #endif
@@ -84,6 +90,9 @@ char *snoopy_filterregistry_names[] = {
 int (*snoopy_filterregistry_ptrs []) (char *logMessage, char const * const arg) = {
 #ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_spawns_of
     snoopy_filter_exclude_spawns_of,
+#endif
+#ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_comm
+    snoopy_filter_exclude_comm,
 #endif
 #ifdef SNOOPY_CONF_FILTER_ENABLED_exclude_uid
     snoopy_filter_exclude_uid,

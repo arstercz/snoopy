@@ -73,6 +73,7 @@
 ;
 ; List of available filters:
 ; - exclude_spawns_of   ; (available=@enable_filter_exclude_spawns_of@) Exclude log entries that occur in specified process trees
+; - exclude_comm        ; (available=@enable_filter_exclude_comm@) Exclude these in command from logging
 ; - exclude_uid         ; (available=@enable_filter_exclude_uid@) Exclude these UIDs from logging
 ; - only_root           ; (available=@enable_filter_only_root@) Only log root commands
 ; - only_tty            ; (available=@enable_filter_only_tty@) Only log commands associated with a TTY
@@ -87,7 +88,8 @@
 ; - filter_chain = "exclude_uid:0"       # Log all commands, except the ones executed by root
 ; - filter_chain = "exclude_uid:1,2,3"   # Log all commands, except those executed by users with UIDs 1, 2 and 3
 ; - filter_chain = "only_uid:0"          # Log only root commands
-; - filter_chain = "exclude_spawns_of:cron,my_daemon" # Do not log commands spawned by cron or my_daemon
+; - filter_chain = "exclude_spawns_of:cron,my_daemon"   # Do not log commands spawned by cron or my_daemon
+; - filter_chain = "exclude_comm:mysql,mongo,redis-cli" # Do not log mysql, mongo and redis-cli commands
 ; - filter_chain = "filter1:arg11;filter2:arg21,arg22;filter3:arg31,32,33"
 ;
 ; Default value:

@@ -59,9 +59,6 @@
  * Non-public function prototypes
  */
 static int find_ancestor_in_list(char **name_list);
-static int find_string_in_array(char *str, char **str_array);
-static char **string_to_token_array(char *str);
-
 
 
 /*
@@ -198,7 +195,7 @@ static int find_ancestor_in_list(char **name_list)
  *    1 if str matches one of the strings in str_array
  *    0 if there are no matches or if either argument is NULL.
  */
-static int find_string_in_array(char *str, char **str_array)
+int find_string_in_array(char *str, char **str_array)
 {
     if ((str == NULL) || (str_array == NULL)) {
         return 0;
@@ -226,7 +223,7 @@ static int find_string_in_array(char *str, char **str_array)
  *    If str is NULL or empty, or if error, returns NULL.
  */
 
-static char **string_to_token_array(char *str)
+char **string_to_token_array(char *str)
 {
     char *p;
     int i;

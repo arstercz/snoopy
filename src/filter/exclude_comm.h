@@ -1,7 +1,7 @@
 /*
  * SNOOPY LOGGER
  *
- * File: snoopy/filter/exclude_spawns_of.h
+ * File: snoopy/filter/exclude_comm.h
  *
  * Copyright (c) 2015 Datto, Inc. All rights reserved.
  * Author: Fred Mora - fmora@datto.com
@@ -24,8 +24,6 @@
 
 
 /*
- * SNOOPY FILTER: exclude_spawns_of
+ * SNOOPY FILTER: exclude_comm
  */
-int snoopy_filter_exclude_spawns_of (char *msg, char const * const arg);
-int find_string_in_array(char *str, char **str_array);
-char **string_to_token_array(char *str);
+int snoopy_filter_exclude_comm (char *msg, char const * const arg);
